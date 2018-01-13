@@ -32,20 +32,19 @@
           var monthIndex = dob.getMonth() + 1;
           var year = dob.getFullYear();
           
-          var fLen, i;
+          var fLen, i, patientlist;
             fLen = patient.length;
-            text = "<ul>";
+            patientlist = "<ul>";
             for (i = 0; i < fLen; i++) {
-                console.log(patient[i]);
+                patientlist += "<li>" + patient[i] + "</li>";
             }
-          
-          
+                patientlist += "</ul>";
           
           var dobStr = monthIndex + '/' + day + '/' + year;
           var fname = '';
           var lname = '';
           var identifier = patient.identifier;
-          var phone = patient.phone
+          var phone = patient.phone;
           
           if (typeof patient.name[0] !== 'undefined') {
             fname = patient.name[0].given.join(' ');
@@ -171,6 +170,7 @@
     $('#diastolicbp').html(p.diastolicbp);
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
+    $('#patientlist').html(patientlist);
   };
 
 })(window);
