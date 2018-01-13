@@ -31,18 +31,8 @@
           var day = dob.getDate();
           var monthIndex = dob.getMonth() + 1;
           var year = dob.getFullYear();
-          
-          var fLen, i, patientlist;
-            fLen = patient.length;
-          
-            patientlist = "<ul>";
-            for (i = 0; i < fLen; i++) {
-                patientlist += "<li>" + patient[i] + "</li>";
-            }
-                patientlist += "</ul>";
-          console.log("PatientIdentifier");
-          console.log(patient.identifier[0]);
-           console.log(patient.identifier[0].value);
+           
+         
          
           $('#patientlist').html(patientlist);
           
