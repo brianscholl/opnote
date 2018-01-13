@@ -57,7 +57,7 @@
           p.lname = lname;
           p.age = parseInt(calculateAge(dob));
           p.height = getQuantityValueAndUnit(height[0]);
-          p.identifier = id;
+          p.id = identifier;
 
           if (typeof systolicbp != 'undefined')  {
             p.systolicbp = systolicbp;
