@@ -173,31 +173,26 @@
   
   <script>
 
+           /*Set default values*/
+
+          $("select").each(function (index) {
+              $('.field' + (index + 1)).text($('#dropDown' + (index + 1)).val());
+          });
           /*Change fields based on valuebox changes*/
-
-          $('.field1').text($('#dropDown1').val());
-          $('.field2').text($('#dropDown2').val());
-
-          $("#dropDown1").change(function (){
-              $('.field1').text($('#dropDown1').val())}
+         $("select").change(function () {
+              var whichControl = $(this).attr('id');
+              $('.field' + whichControl.substr(whichControl.length - 1)).text($(this).val());
+          }
           );
-          $("#dropDown2").change(function (){
-              $('.field2').text($('#dropDown2').val())}
-          );
-
 
           /*Save */
-
           function SaveOpNote() {
-                           
+                         
               $("select").each(function (index) {
-               
-                  $('#containerdropDown' + (index + 1)).text($('#dropDown' + (index + 1)).val());
-                 
-              });
+                                 $('#containerdropDown' + (index + 1)).text($('#dropDown' + (index + 1)).val());
+               });
             
           }
-
           $("#btnSave").click(SaveOpNote) ;
 
 
