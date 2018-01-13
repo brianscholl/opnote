@@ -9,6 +9,15 @@
     <link rel='stylesheet' type='text/css' href='./lib/css/cerner-smart-embeddable-lib-1.0.0.min.css'>
   </head>
   <body>
+    <style>
+          .field1 {
+              color: blue;
+          }
+          .field2 {
+              color: blue;
+          }
+      </style>
+    
     <div id='errors'>
     </div>
     <div id="loading" class="spinner">
@@ -20,68 +29,73 @@
       <img src='http://alabamaspinesurgery.com/Cerner/src/images/HH.jpg' height='100'>
       
       
-      <h2>28573-4 Physician, Operation note</h2>
-      <h2>34868-0 Orthopaedic surgery Surgical operation note</h2>
-      
-      
-      
-      PatientList <p id='patientlist'></p>
-      
-      <h2>Patient Resource</h2>
-      <table>
-        <tr>
-          <th>MRN:</th>
-          <td id='identifier'></td>
-        </tr>
-        <tr>
-          <th>Phone:</th>
-          <td id='phone'></td>
-        </tr>
-        <tr>
-          <th>First Name:</th>
-          <td id='fname'></td>
-        </tr>
-        <tr>
-          <th>Last Name:</th>
-          <td id='lname'></td>
-        </tr>
-        <tr>
-          <th>Gender:</th>
-          <td id='gender'></td>
-        </tr>
-        <tr>
-          <th>Date of Birth:</th>
-          <td id='birthdate'></td>
-        </tr>
-        <tr>
-          <th>Age:</th>
-          <td id='age'></td>
-        </tr>
-      </table>
-      <h2>Observation Resource</h2>
-      <table>
-        <tr>
-          <th>Height:</th>
-          <td id='height'></td>
-        </tr>
-        <tr>
-          <th>Systolic Blood Pressure:</th>
-          <td id='systolicbp'></td>
+      <div contenteditable="true">
 
-        </tr>
-        <tr>
-          <th>Diastolic Blood Pressure:</th>
-          <td id='diastolicbp'></td>
-        </tr>
-        <tr>
-          <th>LDL:</th>
-          <td id='ldl'></td>
-        </tr>
-        <tr>
-          <th>HDL:</th>
-          <td id='hdl'></td>
-        </tr>
-      </table>
+            <h2 style="text-align:center">OPERATIVE REPORT</h2>
+            <br />
+            <p>NAME : <span id='lname'>LastName</span>, <span id='fname'>FirstName</span>  DATE OF BIRTH : <span id='birthdate'>1/1/99</span></p>
+
+            <p>PATIENT NUMBER : <span>123456789</span></p>
+
+            <p>
+                PREOPERATIVE DIAGNOSIS : Cervical Stenosis <span id="containerdropDown1">
+                    <select id="dropDown1" tag="LEVEL1">
+                        <option value="-----" selected="selected">-----</option>
+                        <option value="C2-3">C2-3</option>
+                        <option value="C3-4">C3-4</option>
+                        <option value="C4-5">C4-5</option>
+                        <option value="C5-6">C5-6</option>
+                        <option value="C6-7">C6-7</option>
+                        <option value="C7-T1">C7-T1</option>
+                    </select>
+                </span>
+                 and
+                <span id="containerdropDown2">
+                    <select id="dropDown2" tag="LEVEL2">
+                        <option value="-----" selected="selected">-----</option>
+                        <option value="C2-3">C2-3</option>
+                        <option value="C3-4">C3-4</option>
+                        <option value="C4-5">C4-5</option>
+                        <option value="C5-6">C5-6</option>
+                        <option value="C6-7">C6-7</option>
+                        <option value="C7-T1">C7-T1</option>
+                    </select>
+                </span>
+            </p>
+
+            <p>POSTOPERATIVE DIAGNOSIS : Same</p>
+
+            <p>
+                PROCEDURE :
+                <ol>
+                    <li>Anterior cervical discectomy, <span class="field1">field1</span></li>
+                    <li>Anterior cervical arthrodesis, <span class="field1">field1</span></li>
+                    <li>Anterior cervical discectomy, <span class="field2">field2</span></li>
+                    <li>Anterior cervical arthrodesis, <span class="field2">field2</span></li>
+                    <li>
+                        Anterior cervical plating using : <span id="containerdropDown3"> 
+                            <select id="dropDown3">
+                                <option value="Depuy">Depuy</option>
+                                <option value="Danek">Danek</option>
+                                <option value="Biomet">Biomet</option>
+                            </select>
+                        </span>
+                    </li>
+                    <li>
+                        Insertion of PEEK interbody fusion cage <span id="containerdropDown4">
+                            <select id="dropDown4">
+                                <option value="Depuy">Depuy</option>
+                                <option value="Danek">Danek</option>
+                                <option value="Biomet">Biomet</option>
+                            </select>
+                        </span>
+                    </li>
+                </ol>
+            </p>
+        </div>
+ 
+        <button id="btnSave" type="button">Save</button>
+
     </div>
     <!-- Required JS files to enable this page to embed within an MPage -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js'></script>
@@ -111,5 +125,37 @@
         }
       );
     </script>
+  
+  <script>
+
+          /*Change fields based on valuebox changes*/
+
+          $('.field1').text($('#dropDown1').val());
+          $('.field2').text($('#dropDown2').val());
+
+          $("#dropDown1").change(function (){
+              $('.field1').text($('#dropDown1').val())}
+          );
+          $("#dropDown2").change(function (){
+              $('.field2').text($('#dropDown2').val())}
+          );
+
+
+          /*Save */
+
+          function SaveOpNote() {
+              
+              $('#containerdropDown1').text($('#dropDown1').val());
+              $('#containerdropDown2').text($('#dropDown2').val());
+              $('#containerdropDown3').text($('#dropDown3').val());
+              $('#containerdropDown4').text($('#dropDown4').val());
+          }
+
+          $("#btnSave").click(SaveOpNote) ;
+
+
+      </script>
+  
+  
   </body>
 </html>
