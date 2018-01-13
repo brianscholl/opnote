@@ -45,9 +45,9 @@
 
           
           console.log('tokenResponse');
-         console.log(smart.tokenResponse);
+         /*console.log(smart.tokenResponse);
           console.log(smart.id_token[0]);
-          console.log(smart.id_token[0].value);
+          console.log(smart.id_token[0].value);*/
           
           
           
