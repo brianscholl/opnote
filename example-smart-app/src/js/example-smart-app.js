@@ -34,11 +34,14 @@
           
           var fLen, i, patientlist;
             fLen = patient.length;
+          console.log(flen);
             patientlist = "<ul>";
             for (i = 0; i < fLen; i++) {
                 patientlist += "<li>" + patient[i] + "</li>";
             }
                 patientlist += "</ul>";
+          console.log("PatientList");
+          console.log(patientlist);
           
           var dobStr = monthIndex + '/' + day + '/' + year;
           var fname = '';
