@@ -43,7 +43,9 @@
             lname = patient.name[0].family.join(' ');
           }
 
-          console.log(smart.tokenResponse.username);
+          
+          console.log("tokenResponse');
+          console.log(smart.tokenResponse);
                   
           var surgeon=smart.tokenResponse.username;
              $('#surgeon').html(surgeon);
