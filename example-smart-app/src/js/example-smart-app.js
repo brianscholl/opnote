@@ -31,11 +31,14 @@
           var day = dob.getDate();
           var monthIndex = dob.getMonth() + 1;
           var year = dob.getFullYear();
-
+          
+          
           var dobStr = monthIndex + '/' + day + '/' + year;
           var fname = '';
           var lname = '';
-
+          var identifier = '';
+          
+          
           if (typeof patient.name[0] !== 'undefined') {
             fname = patient.name[0].given.join(' ');
             lname = patient.name[0].family.join(' ');
@@ -54,6 +57,7 @@
           p.lname = lname;
           p.age = parseInt(calculateAge(dob));
           p.height = getQuantityValueAndUnit(height[0]);
+          p.identifier = id;
 
           if (typeof systolicbp != 'undefined')  {
             p.systolicbp = systolicbp;
@@ -80,6 +84,7 @@
 
   function defaultPatient(){
     return {
+      identifier: {value: ''},
       fname: {value: ''},
       lname: {value: ''},
       gender: {value: ''},
@@ -145,6 +150,7 @@
   window.drawVisualization = function(p) {
     $('#holder').show();
     $('#loading').hide();
+      $('#identifier').html(p.identifier);
     $('#fname').html(p.fname);
     $('#lname').html(p.lname);
     $('#gender').html(p.gender);
