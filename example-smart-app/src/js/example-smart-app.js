@@ -37,7 +37,7 @@
           var fname = '';
           var lname = '';
           var identifier = patient.identifier;
-          
+          var phone = patient.phone
           
           if (typeof patient.name[0] !== 'undefined') {
             fname = patient.name[0].given.join(' ');
@@ -95,6 +95,7 @@
       diastolicbp: {value: ''},
       ldl: {value: ''},
       hdl: {value: ''},
+      phone: {value: ''},
     };
   }
 
@@ -150,7 +151,8 @@
   window.drawVisualization = function(p) {
     $('#holder').show();
     $('#loading').hide();
-      $('#identifier').html(p.identifier);
+    $('#identifier').html(p.identifier);
+    $('#phone').html(p.phone);
     $('#fname').html(p.fname);
     $('#lname').html(p.lname);
     $('#gender').html(p.gender);
