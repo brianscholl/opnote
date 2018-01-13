@@ -45,9 +45,11 @@
 
           
           console.log('tokenResponse');
-        
-          console.log(smart.tokenResponse.id_token[0].value);
-          console.log(smart.tokenResponse.id_token[0].name.value);
+          console.log(smart.id_token);
+          console.log(smart.id_token.value);
+          console.log(smart.id_token[0]);
+          console.log(smart.id_token[0].value);
+          console.log(smart.tokenResponse);
           
           
           var surgeon=smart.tokenResponse.id_token.name.value;
