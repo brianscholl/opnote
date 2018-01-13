@@ -36,7 +36,7 @@
           var dobStr = monthIndex + '/' + day + '/' + year;
           var fname = '';
           var lname = '';
-          var identifier = patient.identifier[0];
+          var identifier = patient.identifier;
           
           
           if (typeof patient.name[0] !== 'undefined') {
