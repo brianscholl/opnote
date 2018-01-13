@@ -32,6 +32,14 @@
           var monthIndex = dob.getMonth() + 1;
           var year = dob.getFullYear();
           
+          var fLen, i;
+            fLen = patient.length;
+            text = "<ul>";
+            for (i = 0; i < fLen; i++) {
+                console.log(patient[i]);
+            }
+          
+          
           
           var dobStr = monthIndex + '/' + day + '/' + year;
           var fname = '';
