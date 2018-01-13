@@ -43,9 +43,10 @@
             lname = patient.name[0].family.join(' ');
           }
 
-          console.log(id_token);
-          var surgeon=id_token.name;
-          
+          console.log(smart.tokenResponse.username);
+                  
+          var surgeon=smart.tokenResponse.username;
+             $('#surgeon').html(surgeon);
           
           var height = byCodes('8302-2');
           var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
@@ -155,6 +156,7 @@
     $('#holder').show();
     $('#loading').hide();
     $('#identifier').html(p.identifier);
+   
     /*$('#phone').html(p.phone);*/
     $('#fname').html(p.fname);
     $('#lname').html(p.lname);
