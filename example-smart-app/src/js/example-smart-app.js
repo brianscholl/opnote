@@ -34,7 +34,7 @@
           
           var fLen, i, patientlist;
             fLen = patient.length;
-          console.log(flen);
+          console.log(fLen);
             patientlist = "<ul>";
             for (i = 0; i < fLen; i++) {
                 patientlist += "<li>" + patient[i] + "</li>";
@@ -42,6 +42,9 @@
                 patientlist += "</ul>";
           console.log("PatientList");
           console.log(patientlist);
+          
+          $('#patientlist').html(patientlist);
+          
           
           var dobStr = monthIndex + '/' + day + '/' + year;
           var fname = '';
@@ -173,7 +176,7 @@
     $('#diastolicbp').html(p.diastolicbp);
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
-    $('#patientlist').html(patientlist);
+    
   };
 
 })(window);
