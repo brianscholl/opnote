@@ -42,14 +42,15 @@
                 patientlist += "</ul>";
           console.log("PatientIdentifier");
           console.log(patient.identifier[0]);
-          
+           console.log(patient.identifier[0].value);
+         
           $('#patientlist').html(patientlist);
           
           
           var dobStr = monthIndex + '/' + day + '/' + year;
           var fname = '';
           var lname = '';
-          var identifier = patient.identifier;
+          var identifier = patient.identifier[0].value;
           var phone = patient.phone;
           
           if (typeof patient.name[0] !== 'undefined') {
