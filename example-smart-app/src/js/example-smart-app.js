@@ -157,8 +157,7 @@
   window.drawVisualization = function(p) {
     $('#holder').show();
     $('#loading').hide();
-    $('#identifier').html(p.identifier);
-   
+    $('#MRN').html(p.identifier);
     /*$('#phone').html(p.phone);*/
     $('#fname').html(p.fname);
     $('#lname').html(p.lname);
