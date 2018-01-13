@@ -41,7 +41,7 @@
             }
                 patientlist += "</ul>";
           console.log("PatientIdentifier");
-          console.log(patient.identifier);
+          console.log(patient.identifier[0]);
           
           $('#patientlist').html(patientlist);
           
