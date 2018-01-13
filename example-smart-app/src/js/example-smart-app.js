@@ -44,7 +44,7 @@
           }
 
           
-          console.log("tokenResponse');
+          console.log('tokenResponse');
           console.log(smart.tokenResponse);
                   
           var surgeon=smart.tokenResponse.username;
