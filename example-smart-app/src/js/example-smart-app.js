@@ -31,12 +31,7 @@
           var day = dob.getDate();
           var monthIndex = dob.getMonth() + 1;
           var year = dob.getFullYear();
-           
-         
-         
-          $('#patientlist').html(patientlist);
-          
-          
+            
           var dobStr = monthIndex + '/' + day + '/' + year;
           var fname = '';
           var lname = '';
@@ -156,17 +151,17 @@
     $('#holder').show();
     $('#loading').hide();
     $('#identifier').html(p.identifier);
-    $('#phone').html(p.phone);
+    /*$('#phone').html(p.phone);*/
     $('#fname').html(p.fname);
     $('#lname').html(p.lname);
-    $('#gender').html(p.gender);
+    /*$('#gender').html(p.gender);
     $('#birthdate').html(p.birthdate);
     $('#age').html(p.age);
     $('#height').html(p.height);
     $('#systolicbp').html(p.systolicbp);
     $('#diastolicbp').html(p.diastolicbp);
     $('#ldl').html(p.ldl);
-    $('#hdl').html(p.hdl);
+    $('#hdl').html(p.hdl);*/
     
   };
 
