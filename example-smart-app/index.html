@@ -92,6 +92,51 @@
                     </li>
                 </ol>
             </p>
+      <p>SURGEON : <span class="surgeon">surgeonname</span></p>
+            <p>ASSISTANT : <span id="containerdropDown5">
+                               <select id="dropDown5">
+                                   <option value="Greg Washburn, PAC">Greg Washburn, PAC</option>
+                                   <option value="None">None</option>
+                               </select></span>
+            </p>
+
+            <p>PA JUSTIFICATION : <span id="containerdropDown6">
+                    <select id="dropDown6">
+                        <option value="My assistant's expertise was necessary and vital for the successful completion
+                                of this case.  He aided in in positioning and prepping and draping of the patient.  He
+                                aided in manuevering of the Fluroscope and other instruments necessary for the completion
+                                of the case including suture management.  His presence and expertise was vital in 
+                                facilitating the case by aiding the technician on the back table, ensuring the appropriate
+                                instruments were available at the appropriate time and aiding in retraction and protevtion of
+                                neural tissue.  He aided in wound closure.">My assistant's expertise was necessary and vital for the successful completion
+                                of this case.  He aided in in positioning and prepping and draping of the patient.  He
+                                aided in manuevering of the Fluroscope and other instruments necessary for the completion
+                                of the case including suture management.  His presence and expertise was vital in
+                                facilitating the case by aiding the technician on the back table, ensuring the appropriate
+                                instruments were available at the appropriate time and aiding in retraction and protevtion of
+                                neural tissue.  He aided in wound closure.</option>
+                        <option value="None">N/A</option>
+                    </select>
+                </span>
+            </p>
+
+            <p>ANESTHESIA : <span id="containerdropDown7">
+                    <select id="dropDown7">
+                        <option value="GETA">GETA</option>
+                        <option value="MAC">MAC</option>
+                        <option value="LOCAL">LOCAL</option>
+                    </select>
+                </span>
+            </p>
+
+            <p>INDICATIONS : <span id='fname'>FirstName</span> is a <span id='age'>AGE</span> y/o <span id='gender'>GENDER</span>
+                    <span id="containerdropDown8">
+                    <select id="dropDown8">
+                        <option value="Persistent pain despite conservative treatment">Persistent pain despite conservative treatment</option>
+                        <option value="Progressive neurological deficit">Progressive neurological deficit</option>
+                        </select>
+                </span>
+            </p>
         </div>
  
         <button id="btnSave" type="button">Save</button>
@@ -144,11 +189,13 @@
           /*Save */
 
           function SaveOpNote() {
-              
-              $('#containerdropDown1').text($('#dropDown1').val());
-              $('#containerdropDown2').text($('#dropDown2').val());
-              $('#containerdropDown3').text($('#dropDown3').val());
-              $('#containerdropDown4').text($('#dropDown4').val());
+                           
+              $("select").each(function (index) {
+               
+                  $('#containerdropDown' + (index + 1)).text($('#dropDown' + (index + 1)).val());
+                 
+              });
+            
           }
 
           $("#btnSave").click(SaveOpNote) ;
