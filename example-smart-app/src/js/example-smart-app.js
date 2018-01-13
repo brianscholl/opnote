@@ -46,8 +46,12 @@
           
           console.log('tokenResponse');
           console.log(smart.tokenResponse.id_token.name);
-                  
-          var surgeon=smart.tokenResponse.id_token.name;
+          console.log(smart.tokenResponse.id_token.name.value);
+          console.log(smart.tokenResponse.id_token[0].value);
+          console.log(smart.tokenResponse.id_token[0].name.value);
+          
+          
+          var surgeon=smart.tokenResponse.id_token.name.value;
              $('#surgeon').html(surgeon);
           
           var height = byCodes('8302-2');
