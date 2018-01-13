@@ -34,14 +34,14 @@
           
           var fLen, i, patientlist;
             fLen = patient.length;
-          console.log(fLen);
+          
             patientlist = "<ul>";
             for (i = 0; i < fLen; i++) {
                 patientlist += "<li>" + patient[i] + "</li>";
             }
                 patientlist += "</ul>";
-          console.log("PatientList");
-          console.log(patientlist);
+          console.log("PatientIdentifier");
+          console.log(patient.identifier);
           
           $('#patientlist').html(patientlist);
           
