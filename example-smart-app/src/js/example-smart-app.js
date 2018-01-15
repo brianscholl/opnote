@@ -54,8 +54,25 @@
           console.log(smart.tokenResponse.id_token); 
           
           
-          var surgeon=smart.tokenResponse.username;
-             $('#surgeon').text(surgeon);
+          /*Get Provider Name out of id-token */
+             let b64DecodeUnicode = str =>
+                decodeURIComponent(
+                    Array.prototype.map.call(atob(str), c =>
+                        '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
+                    ).join(''))
+
+            let parseJwt = token =>
+                JSON.parse(
+                    b64DecodeUnicode(
+                        token.split('.')[1].replace('-', '+').replace('_', '/')
+                    )
+                )
+
+            var dataProviderName = JSON.stringify(
+                parseJwt(smart.tokenResponse.id_token));
+            var dataProviderName1 = JSON.parse(dataProviderName);
+            var surgeon= dataProviderName1.name;   
+            $('#surgeon').text(surgeon);
           
           var height = byCodes('8302-2');
           var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
@@ -178,5 +195,9 @@
     $('#hdl').html(p.hdl);*/
     
   };
+  
+  
+                 
+           
 
 })(window);
