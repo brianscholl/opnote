@@ -128,7 +128,7 @@
 
     <script>
         /*Get the availble OPNoteTemplates for the user*/
-        jQuery.get('./templates/opnotes/Scholl-OpNotes.txt', function (data) {
+        jQuery.get('https://alabamaspinesurgery.com/Cerner/templates/opnotes/Scholl-OpNotes.txt', function (data) {
             var availOpNoteTemplates = data.split("\n");
             for (var i = 0, len = availOpNoteTemplates.length; i < len; i++) {
                 $('#userDocuments').append('<option value="' + availOpNoteTemplates[i] + '">' + availOpNoteTemplates[i] + '</option>');
