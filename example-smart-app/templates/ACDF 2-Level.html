@@ -1,0 +1,172 @@
+﻿
+
+    <style>
+          .field1 {
+              color: blue;
+          }
+          .field2 {
+              color: blue;
+          }
+         
+	
+      </style>
+
+
+    
+    <div id='opNoteTemplate' >
+      <img src='http://alabamaspinesurgery.com/Cerner/src/images/HH.jpg' height='100'>
+      
+         
+        <div contenteditable="true" width="99%">
+
+            <h2 style="text-align:center">OPERATIVE REPORT</h2>
+            <br />
+            <p>NAME : <span id='lname'>LastName</span>, <span class='fname'>FirstName</span>   -----  DATE OF BIRTH : <span id='birthdate'>1/1/99</span></p>
+
+            <p>PATIENT NUMBER : <span>123456789</span></p>
+
+            <p>
+                PREOPERATIVE DIAGNOSIS : Cervical Stenosis <span id="containerdropDown1">
+                    <select  id="dropDown1" tag="LEVEL1">
+                        <option value="-----" selected="selected">-----</option>
+                        <option value="C2-3">C2-3</option>
+                        <option value="C3-4">C3-4</option>
+                        <option value="C4-5">C4-5</option>
+                        <option value="C5-6">C5-6</option>
+                        <option value="C6-7">C6-7</option>
+                        <option value="C7-T1">C7-T1</option>
+                    </select>
+                </span>
+                 and
+                <span id="containerdropDown2">
+                    <select id="dropDown2" tag="LEVEL2">
+                        <option value="-----" selected="selected">-----</option>
+                        <option value="C2-3">C2-3</option>
+                        <option value="C3-4">C3-4</option>
+                        <option value="C4-5">C4-5</option>
+                        <option value="C5-6">C5-6</option>
+                        <option value="C6-7">C6-7</option>
+                        <option value="C7-T1">C7-T1</option>
+                    </select>
+                </span>
+            </p>
+
+            <p>POSTOPERATIVE DIAGNOSIS : Same</p>
+
+            <p>
+                PROCEDURE :
+                <ol>
+                    <li>Anterior cervical discectomy, <span class="field1" >field1</span></li>
+                    <li>Anterior cervical arthrodesis, <span class="field1" >field1</span></li>
+                    <li>Anterior cervical discectomy, <span class="field2" >field2</span></li>
+                    <li>Anterior cervical arthrodesis, <span class="field2" >field2</span></li>
+                    <li>
+                        Anterior cervical plating using : <span id="containerdropDown3"> 
+                            <select id="dropDown3">
+                                <option value="Depuy">Depuy</option>
+                                <option value="Danek">Danek</option>
+                                <option value="Biomet">Biomet</option>
+                            </select>
+                        </span>
+                    </li>
+                    <li>
+                        Insertion of PEEK interbody fusion cage <span id="containerdropDown4">
+                            <select id="dropDown4">
+                                <option value="Depuy">Depuy</option>
+                                <option value="Danek">Danek</option>
+                                <option value="Biomet">Biomet</option>
+                            </select>
+                        </span>
+                    </li>
+                </ol>
+            </p>
+
+            <p>SURGEON : <span class="surgeon">surgeonname</span></p>
+            <p>ASSISTANT : <span id="containerdropDown5">
+                               <select id="dropDown5">
+                                   <option value="Greg Washburn, PAC">Greg Washburn, PAC</option>
+                                   <option value="None">None</option>
+                               </select></span>
+            </p>
+
+            <p>PA JUSTIFICATION : <span id="containerdropDown6" >
+                    <select id="dropDown6">
+                        <option value="My assistant's expertise was necessary and vital for the successful completion
+                                of this case.  He aided in in positioning and prepping and draping of the patient.  He
+                                aided in manuevering of the Fluroscope and other instruments necessary for the completion
+                                of the case including suture management.  His presence and expertise was vital in 
+                                facilitating the case by aiding the technician on the back table, ensuring the appropriate
+                                instruments were available at the appropriate time and aiding in retraction and protevtion of
+                                neural tissue.  He aided in wound closure.">My assistant's expertise was necessary and vital for the successful completion
+                                of this case.  He aided in in positioning and prepping and draping of the patient.  He
+                                aided in manuevering of the Fluroscope and other instruments necessary for the completion
+                                of the case including suture management.  His presence and expertise was vital in
+                                facilitating the case by aiding the technician on the back table, ensuring the appropriate
+                                instruments were available at the appropriate time and aiding in retraction and protevtion of
+                                neural tissue.  He aided in wound closure.</option>
+                        <option value="None">N/A</option>
+                    </select>
+                </span>
+            </p>
+
+            <p>ANESTHESIA : <span id="containerdropDown7">
+                    <select id="dropDown7">
+                        <option value="GETA">GETA</option>
+                        <option value="MAC">MAC</option>
+                        <option value="LOCAL">LOCAL</option>
+                    </select>
+                </span>
+            </p>
+
+            <p>INDICATIONS : <span class='fname'>FirstName</span> is a <span id='age'>AGE</span> y/o <span id='gender'>GENDER</span>
+                    <span id="containerdropDown8">
+                    <select id="dropDown8">
+                        <option value="Persistent pain despite conservative treatment">Persistent pain despite conservative treatment</option>
+                        <option value="Progressive neurological deficit">Progressive neurological deficit</option>
+                        </select>
+                </span>
+            </p>
+
+
+        </div>
+
+      
+
+        
+
+
+        <button id="btnSave" type="button">Save</button>
+
+    </div>
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+   
+      
+      <script>
+
+           /*Set default values*/
+
+          $("select").each(function (index) {
+              $('.field' + (index + 1)).text($('#dropDown' + (index + 1)).val());
+          });
+          /*Change fields based on valuebox changes*/
+         $("select").change(function () {
+              var whichControl = $(this).attr('id');
+              $('.field' + whichControl.substr(whichControl.length - 1)).text($(this).val());
+          }
+          );
+
+          /*Save */
+          function SaveOpNote() {
+                         
+              $("select").each(function (index) {
+                                 $('#containerdropDown' + (index + 1)).text($('#dropDown' + (index + 1)).val());
+               });
+            
+          }
+          $("#btnSave").click(SaveOpNote) ;
+
+
+      </script>
+      
