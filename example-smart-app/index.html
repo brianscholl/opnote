@@ -129,7 +129,7 @@
 
     <script>
         /*Get the availble OPNoteTemplates for the user*/
-        jQuery.get('http://alabamaspinesurgery.com/cerner/templates/opnotes/Scholl-OpNotes.txt', function (data) {
+        jQuery.get('./templates/opnotes/Scholl-OpNotes.txt', function (data) {
             var availOpNoteTemplates = data.split("\n");
             for (var i = 0, len = availOpNoteTemplates.length; i < len; i++) {
                 $('#userDocuments').append('<option value="' + availOpNoteTemplates[i] + '">' + availOpNoteTemplates[i] + '</option>');
@@ -143,7 +143,7 @@
       $("#userDocuments").change(function () {
           /*Get the file contents */
           $.ajax({
-              url: "http://alabamaspinesurgery.com/cerner/templates/opnotes/" + $("#userDocuments :selected").text() + ".html",
+              url: "./templates/opnotes/" + $("#userDocuments :selected").text() + ".html",
               dataType: "text",
               success: function (data) {
                   $(".OpNote").html(data);
