@@ -55,7 +55,7 @@
           
           
           var surgeon=smart.tokenResponse.username;
-             $('#surgeon').html(surgeon);
+             $('#surgeon').text(surgeon);
           
           var height = byCodes('8302-2');
           var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
