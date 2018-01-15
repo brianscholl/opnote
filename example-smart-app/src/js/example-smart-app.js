@@ -48,7 +48,7 @@
           console.log(smart.tokenResponse);
           console.log('tokenResponse.username');
           console.log(smart.tokenResponse.username); 
-          console.log('smart.tokenResponse['id_token']');
+          console.log("smart.tokenResponse['id_token']");
           console.log(smart.tokenResponse['id_token']); 
           var surgeon=smart.tokenResponse.username;
              $('#surgeon').html(surgeon);
