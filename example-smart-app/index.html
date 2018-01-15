@@ -8,12 +8,51 @@
     <link rel='stylesheet' type='text/css' href='./src/css/example-smart-app.css'>
     <link rel='stylesheet' type='text/css' href='./lib/css/cerner-smart-embeddable-lib-1.0.0.min.css'>
 
-    
 
 </head>
 <body>
     <style>
-       
+        .header {
+            background-color: lightblue;
+            height: 10vh;
+            display: table;
+            width: 100%;
+            padding-left: 10%;
+        }
+
+        .headerCentered {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .footer {
+            background-color: lightblue;
+            height: 10vh;
+            display: table;
+            width: 100%;
+            text-align: center;
+        }
+
+        .footerCentered {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .OpNote {
+            height: 75vh;
+            width: 100%;
+            background-color: white;
+            padding: 2px 6px;
+            overflow: scroll;
+        }
+
+        select {
+            max-width: 80%;
+        }
+
+            select.option {
+                max-width: 80%;
+            }
     </style>
 
     <div id='errors'>
@@ -24,12 +63,39 @@
         <div class="bounce3"></div>
     </div>
     <div id='holder'>
-        
-            <p>NAME : <span id='lname'>LastName</span>, <span id='fname'>FirstName</span>  DATE OF BIRTH : <span id='birthdate'>1/1/99</span></p>
-            <p>PATIENT NUMBER : <span id='MRN'>123456789</span> <span id='age'>AGE</span> y/o <span id='gender'>GENDER</span></p>
+        <div class="header" id="header" height="10vh">
+            <div class="headerCentered">
+                Select a document :
 
-           
-            
+               
+                <select id="userDocuments">
+                    <option value="" selected="selected">-----</option>
+                    <!-- Get list of OP Templates-->
+                    
+
+                </select>
+                
+
+                <p><span id='lname'>LastName</span>, <span id='fname'>FirstName</span> &nbsp&nbsp&nbsp&nbsp  DOB : <span id='birthdate'>1/1/99</span> &nbsp&nbsp&nbsp&nbsp   MRN : <span id='MRN'>123456789</span></p>
+
+            </div>
+        </div>
+
+
+
+
+        <div class="OpNote" contenteditable="true">
+
+        </div>
+
+
+
+        <div class="footer" id="footer">
+            <div class="footerCentered">
+                <button id="btnSave" type="button">Save</button>
+            </div>
+        </div>
+
     </div>
     <!-- Required JS files to enable this page to embed within an MPage -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js'></script>
@@ -59,7 +125,38 @@
       );
     </script>
 
-  
+
+    <script>
+        /*Get the availble OPNoteTemplates for the user*/
+        jQuery.get('./templates/opnotes/Scholl-OpNotes.txt', function (data) {
+            var availOpNoteTemplates = data.split("\n");
+            for (var i = 0, len = availOpNoteTemplates.length; i < len; i++) {
+                $('#userDocuments').append('<option value="' + availOpNoteTemplates[i] + '">' + availOpNoteTemplates[i] + '</option>');
+            }
+        });
+        
+    </script>
+
+    <script>
+
+      $("#userDocuments").change(function () {
+          /*Get the file contents */
+          $.ajax({
+              url: "./templates/opnotes/" + $("#userDocuments :selected").text() + ".html",
+              dataType: "text",
+              success: function (data) {
+                  $(".OpNote").html(data);
+              }
+          }
+          );
+      });
+
+
+
+
+    </script>
+    
+
 
 
 </body>
