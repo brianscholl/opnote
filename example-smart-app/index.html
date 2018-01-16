@@ -144,7 +144,8 @@
       $("#userDocuments").change(function () {
           /*Get the file contents */
           $.ajax({
-              url: "./templates/opnotes/" + $("#userDocuments :selected").text() + ".html",
+              
+              url: "./templates/opnotes/" + "1701.bscholl." + $("#userDocuments :selected").text() + ".html",
               dataType: "text",
               success: function (data) {
                   $(".OpNote").html(data);
