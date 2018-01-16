@@ -129,7 +129,8 @@
 
     <script>
         /*Get the availble OPNoteTemplates for the user*/
-        jQuery.get('./templates/opnotes/Scholl-OpNotes.txt', function (data) {
+         /*File Naming schema :  ProviderID.UserName.FileName.Txt */
+        jQuery.get('./templates/opnotes/1701.bscholl.templateOpNotes.txt', function (data) {
             var availOpNoteTemplates = data.split("\n");
             for (var i = 0, len = availOpNoteTemplates.length; i < len; i++) {
                 $('#userDocuments').append('<option value="' + availOpNoteTemplates[i] + '">' + availOpNoteTemplates[i] + '</option>');
