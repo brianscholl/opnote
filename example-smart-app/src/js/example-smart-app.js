@@ -72,7 +72,7 @@
                         parseJwt(smart.tokenResponse.id_token));
                     var dataProviderName1 = JSON.parse(dataProviderName);
                     var surgeon = dataProviderName1.name;
-                    $('#token').html(p.dataProviderName);
+                    $('#token').text(dataProviderName);
                     $('#surgeon').text(surgeon);
 
                     var height = byCodes('8302-2');
