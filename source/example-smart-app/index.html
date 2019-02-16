@@ -1,71 +1,47 @@
 <!DOCTYPE html>
 <html lang="en" hidden>
-  <head>
+<head>
     <meta http-equiv='X-UA-Compatible' content='IE=edge' />
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
-    <title>OPNote Example-SMART-App</title>
+    <title>OP Note Example-SMART-App</title>
 
     <link rel='stylesheet' type='text/css' href='./src/css/example-smart-app.css'>
     <link rel='stylesheet' type='text/css' href='./lib/css/cerner-smart-embeddable-lib-1.0.0.min.css'>
-  </head>
-  <body>
+
+
+</head>
+<body>
+    <style>
+        
+    </style>
+
     <div id='errors'>
     </div>
     <div id="loading" class="spinner">
-      <div class="bounce1"></div>
-      <div class="bounce2"></div>
-      <div class="bounce3"></div>
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
     </div>
-    <div id='holder' >
-      <h2>Example-SMART-App</h2>
+    <div id='holder'>
+        <div class="header" id="header" height="10vh">
+      
+                <p><span id='lname'>LastName</span>, <span id='fname'>FirstName</span></p>
+                <p>MRN : <span id='MRN'>123456789</span></p>
+                <p>DOB : <span id='birthdate'>1/1/99</span> </p>
+                <p><span id='age'>    AGE</span> y/o <span id='gender'>GENDER</span></p>
+                <p>Phone : <span id='phone'>123456789</span></p>
+                <p>SURGEON : <span id="surgeon">surgeonname</span> </p>
+                <p>Token : <span id="token">token</span> </p>
+          
+        </div>
 
-      <h2>Patient Resource</h2>
-      <table>
-        <tr>
-          <th>First Name:</th>
-          <td id='fname'></td>
-        </tr>
-        <tr>
-          <th>Last Name:</th>
-          <td id='lname'></td>
-        </tr>
-        <tr>
-          <th>Gender:</th>
-          <td id='gender'></td>
-        </tr>
-        <tr>
-          <th>Date of Birth:</th>
-          <td id='birthdate'></td>
-        </tr>
-        <tr>
-          <th>Age:</th>
-          <td id='age'></td>
-        </tr>
-      </table>
-      <h2>Observation Resource</h2>
-      <table>
-        <tr>
-          <th>Height:</th>
-          <td id='height'></td>
-        </tr>
-        <tr>
-          <th>Systolic Blood Pressure:</th>
-          <td id='systolicbp'></td>
 
-        </tr>
-        <tr>
-          <th>Diastolic Blood Pressure:</th>
-          <td id='diastolicbp'></td>
-        </tr>
-        <tr>
-          <th>LDL:</th>
-          <td id='ldl'></td>
-        </tr>
-        <tr>
-          <th>HDL:</th>
-          <td id='hdl'></td>
-        </tr>
-      </table>
+
+
+
+
+
+
     </div>
     <!-- Required JS files to enable this page to embed within an MPage -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js'></script>
@@ -87,7 +63,6 @@
         function(p) {
           drawVisualization(p);
         },
-
         //Display 'Failed to call FHIR Service' if extractData failed
         function() {
           $('#loading').hide();
@@ -95,5 +70,41 @@
         }
       );
     </script>
-  </body>
+
+
+    <script>
+        /*Get the availble OPNoteTemplates for the user*/
+        /*File Naming schema :  ProviderID.UserName.FileName.Txt */
+        //jQuery.get('./templates/opnotesForCerner/1701.bscholl.Index_OpNotes.txt', function (data) {
+        //    var availOpNoteTemplates = data.split("\n");
+        //    for (var i = 0, len = availOpNoteTemplates.length; i < len; i++) {
+        //        $('#userDocuments').append('<option value="' + availOpNoteTemplates[i] + '">' + availOpNoteTemplates[i] + '</option>');
+        //    }
+        //});
+        
+    </script>
+
+    <script>
+
+      $("#userDocuments").change(function () {
+          /*Get the file contents */
+          //$.ajax({
+          //    url: "./templates/opnotesForCerner/" + "1701.bscholl."+  $("#userDocuments :selected").text() + ".html",
+          //    dataType: "text",
+          //    success: function (data) {
+          //        $(".OpNote").html(data);
+          //    }
+          //}
+          //);
+      });
+
+
+
+
+    </script>
+    
+
+
+
+</body>
 </html>
