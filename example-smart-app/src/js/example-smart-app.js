@@ -183,7 +183,7 @@
         $('#holder').show();
         $('#loading').hide();
         $('#MRN').html(p.identifier);
-        *$('#phone').html(p.phone);
+        $('#phone').html(p.phone);
         $('#fname').html(p.fname);
         $('#lname').html(p.lname);
         $('#gender').html(p.gender);
